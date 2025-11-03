@@ -13,8 +13,12 @@ class DashboarPostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->where('author_id', Auth::user()->id)->get();
-        return view('dashboard', ['posts' => $posts]);
+        $posts = Post::latest()->where('author_id', Auth::user()->id);
+
+        if (request('keyword')) {
+            $posts->where('blog_title', 'like', '%' . request('keyword') . '%');
+        };
+        return view('dashboard.index', ['posts' => $posts->get()]);
     }
 
     /**
@@ -36,9 +40,10 @@ class DashboarPostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Post $post)
     {
-        //
+        // dd($post->blog_title);
+        return view('dashboard.show', ['post' => $post]);
     }
 
     /**

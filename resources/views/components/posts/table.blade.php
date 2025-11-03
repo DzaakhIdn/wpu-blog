@@ -16,9 +16,9 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <input type="text" id="simple-search"
+                            <input type="text" id="simple-search" name="keyword"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2"
-                                placeholder="Search" required="">
+                                placeholder="Search Post">
                         </div>
                     </form>
                 </div>
@@ -85,8 +85,7 @@
                                                 </button>
                                             </li>
                                             <li>
-                                                <button type="button" data-modal-target="readProductModal"
-                                                    data-modal-toggle="readProductModal"
+                                                <a href="/dashboard/{{ $post->slug }}"
                                                     class="flex w-full items-center py-2 px-4 hover:bg-gray-100 text-gray-700">
                                                     <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg"
                                                         viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -94,8 +93,8 @@
                                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                                             d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" />
                                                     </svg>
-                                                    Preview
-                                                </button>
+                                                    Show
+                                                </a>
                                             </li>
                                             <li>
                                                 <button type="button" data-modal-target="deleteModal"
