@@ -41,6 +41,8 @@ Route::get('/about', function () {
 
 Route::get('/dashboard', [DashboarPostController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/dashboard/create', [DashboarPostController::class, 'create'])->middleware(['auth', 'verified']);
+
 Route::get('/dashboard/{post:slug}', [DashboarPostController::class, 'show'])->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
